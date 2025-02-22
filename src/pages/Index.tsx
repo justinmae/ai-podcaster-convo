@@ -37,7 +37,7 @@ const Index = () => {
           <div className="grid grid-cols-1 gap-6">
             <div className="w-full flex justify-center">
               <div className="w-full">
-                <ElevenLabsConversation isRecording={isRecording} />
+                <elevenlabs-convai agent-id="1eG0z3CytOswsQrWQyx8"></elevenlabs-convai>
               </div>
             </div>
             
