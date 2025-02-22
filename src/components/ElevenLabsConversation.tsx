@@ -21,16 +21,24 @@ const ElevenLabsConversation = ({ isRecording }: ElevenLabsConversationProps) =>
       setIsConnecting(true);
       
       // Get the API key from Supabase
-      const { data: { key: elevenLabsApiKey } } = await supabase.functions.invoke('get-secret', {
+      const { data, error } = await supabase.functions.invoke('get-secret', {
         body: { name: 'ELEVENLABS_API_KEY' }
       });
 
-      if (!elevenLabsApiKey) {
+      if (error) {
+        throw new Error(`Failed to get API key: ${error.message}`);
+      }
+
+      if (!data?.key) {
         throw new Error('ElevenLabs API key not found');
       }
 
       // Initialize WebSocket connection
-      const socket = new WebSocket('wss://api.elevenlabs.io/v1/chat');
+      const socket = new WebSocket('wss://api.elevenlabs.io/v1/chat', [], {
+        headers: {
+          'xi-api-key': data.key
+        }
+      });
       
       socket.onopen = () => {
         console.log('WebSocket connection established');
@@ -123,7 +131,7 @@ const ElevenLabsConversation = ({ isRecording }: ElevenLabsConversationProps) =>
       console.error('Error starting conversation:', error);
       toast({
         title: "Error",
-        description: "Failed to start conversation. Please try again.",
+        description: error instanceof Error ? error.message : "Failed to start conversation. Please try again.",
         variant: "destructive",
       });
       setIsConnecting(false);
