@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import TranscriptPanel from "@/components/TranscriptPanel";
 import VideoPreview from "@/components/VideoPreview";
 import RecordingStatus from "@/components/RecordingStatus";
+import ElevenLabsConversation from "@/components/ElevenLabsConversation";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -80,6 +81,9 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-1">
               <VideoPreview isRecording={isRecording} />
+              <div className="mt-4">
+                <ElevenLabsConversation isRecording={isRecording} />
+              </div>
             </div>
             
             <div className="md:col-span-2">
