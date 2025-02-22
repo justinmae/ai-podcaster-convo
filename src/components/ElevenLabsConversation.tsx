@@ -17,7 +17,10 @@ const ElevenLabsConversation = ({ isRecording }: ElevenLabsConversationProps) =>
         src="https://elevenlabs.io/app/talk-to?agent_id=1eG0z3CytOswsQrWQyx8"
         className="w-full border-none"
         style={{ minHeight: 'calc(100vh - 300px)' }}
-        allow="microphone"
+        allow="microphone; camera; display-capture; clipboard-write"
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="origin"
       />
     </div>
   );
