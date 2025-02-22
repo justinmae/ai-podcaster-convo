@@ -5,7 +5,7 @@ import VideoPreview from "@/components/VideoPreview";
 import ElevenLabsConversation from "@/components/ElevenLabsConversation";
 
 const Index = () => {
-  const [isRecording, setIsRecording] = useState(true); // Always show the conversation widget
+  const [isRecording, setIsRecording] = useState(true);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
