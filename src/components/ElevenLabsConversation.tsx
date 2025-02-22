@@ -33,12 +33,8 @@ const ElevenLabsConversation = ({ isRecording }: ElevenLabsConversationProps) =>
         throw new Error('ElevenLabs API key not found');
       }
 
-      // Initialize WebSocket connection
-      const socket = new WebSocket('wss://api.elevenlabs.io/v1/chat', [], {
-        headers: {
-          'xi-api-key': data.key
-        }
-      });
+      // Initialize WebSocket connection with API key in the URL
+      const socket = new WebSocket(`wss://api.elevenlabs.io/v1/chat?xi-api-key=${data.key}`);
       
       socket.onopen = () => {
         console.log('WebSocket connection established');
