@@ -34,15 +34,15 @@ const Index = () => {
             </motion.p>
           </header>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="md:col-span-1">
-              <VideoPreview isRecording={isRecording} />
-            </div>
-            
-            <div className="md:col-span-1">
-              <div className="h-full min-h-[400px]">
+          <div className="grid grid-cols-1 gap-6">
+            <div className="w-full flex justify-center">
+              <div className="w-full max-w-2xl">
                 <ElevenLabsConversation isRecording={isRecording} />
               </div>
+            </div>
+            
+            <div className="w-full max-w-lg mx-auto">
+              <VideoPreview isRecording={isRecording} />
             </div>
           </div>
         </motion.div>
