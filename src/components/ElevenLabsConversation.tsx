@@ -34,7 +34,7 @@ const ElevenLabsConversation = ({ isRecording }: ElevenLabsConversationProps) =>
       }
 
       // Initialize WebSocket connection with API key in the URL
-      const socket = new WebSocket(`wss://api.elevenlabs.io/v1/chat?xi-api-key=${data.key}`);
+      const socket = new WebSocket(`wss://api.elevenlabs.io/v1/agent?xi-api-key=${data.key}`);
       
       socket.onopen = () => {
         console.log('WebSocket connection established');
